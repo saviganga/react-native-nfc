@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
 
 import WriteNfc from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writenfc';
+import ReadNfc from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/readnfc';
 
 
 export default function App() {
@@ -39,29 +40,10 @@ export default function App() {
     }
   }, [])
 
-
-  const readTag = async() => {
-    try {
-      // register for the NFC tag with NDEF in it
-      await NfcManager.requestTechnology(NfcTech.Ndef);
-      // the resolved tag object will contain `ndefMessage` property
-      const tag = await NfcManager.getTag();
-      if (Ndef.isType(tag.ndefMessage[0], Ndef.TNF_WELL_KNOWN, Ndef.RTD_URI)) {
-        Alert.alert('Tag found:', Ndef.uri.decodePayload(tag.ndefMessage[0].payload));
-    }
-    } catch (ex) {
-      console.warn('Oops!', ex);
-    } finally {
-      // stop the nfc scanning
-      NfcManager.cancelTechnologyRequest();
-    }
-  }
-
   return (
     <SafeAreaView style={styles.sectionContainer}>
-      <TouchableOpacity style={styles.input} onPress={readTag}>
-        <Text style={{ color: "white" }}>Scan Tag</Text>
-      </TouchableOpacity>
+    
+      <ReadNfc/>
 
       <WriteNfc/>
 
@@ -73,7 +55,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'center',
   },
