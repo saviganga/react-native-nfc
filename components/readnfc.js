@@ -26,7 +26,7 @@ export default function ReadNfc() {
       return (
         <SafeAreaView style={styles.sectionContainer}>
           <TouchableOpacity style={styles.input} onPress={readTag}>
-            <Text style={{ color: "white" }}>Scan Tag</Text>
+            <Text style={{ color: "black" }}>Scan Tag</Text>
           </TouchableOpacity>
         </SafeAreaView>
       );
@@ -37,7 +37,7 @@ export default function ReadNfc() {
 const styles = StyleSheet.create({
     input: {
       borderWidth: 1,
-      borderColor: 'white',
+      borderColor: 'black',
       padding: 8,
       margin: 10,
       width: 200
