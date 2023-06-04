@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   
     input: {
       borderWidth: 1,
-      borderColor: 'white',
+      borderColor: 'black',
       padding: 8,
       margin: 10,
       width: 200
