@@ -9,6 +9,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import WriteNfc from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writenfc';
 import ReadNfc from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/readnfc';
 import HomeScreen from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/home';
+import AddUser from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writecontactnfc';
+import WriteToVcard from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writevcard';
 
 // const Stack = createNativeStackNavigator();
 
@@ -22,6 +24,8 @@ export default function App() {
       <Tab.Navigator initialRouteName="Home">
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="write URL" component={WriteNfc} />
+        <Tab.Screen name="create contact" component={AddUser} />
+        <Tab.Screen name="write vcard" component={WriteToVcard} />
       </Tab.Navigator>
     </NavigationContainer>
 
