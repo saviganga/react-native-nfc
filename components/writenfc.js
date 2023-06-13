@@ -21,34 +21,7 @@ export default function WriteNfc() {
         writeNFC(link)
     }
 
-    // const inp = () => {
 
-    //     console.log('in')
-
-    //     return (
-    //         <View>
-    //             <TextInput
-    //             style={styles.input}
-    //             placeholder='enter link'
-    //             onChangeText={linkChangeHandler}
-    //             />
-    
-    //             {/* <TouchableOpacity style={styles.input} onPress={pressButtonHandler}>
-    //                 <Text style={{ color: "white" }}>Write Tag</Text>
-    //             </TouchableOpacity> */}
-    
-    //             <Button onPress={pressButtonHandler} title='submit info' />
-    
-    //         </View>
-    //     )
-
-
-    // }
-
-
-
-
-  // collect values from the user
   const writeNFC = async(val) => {
     let result = false;
 
@@ -68,32 +41,8 @@ export default function WriteNfc() {
       NfcManager.cancelTechnologyRequest();
     }
 
-    // return (
-    //     <View>
-    //         <TextInput
-    //         style={styles.input}
-    //         placeholder='enter link'
-    //         onChangeText={linkChangeHandler}
-    //         />
-
-    //         {/* <TouchableOpacity style={styles.input} onPress={inp}>
-    //             <Text style={{ color: "white" }}>Write Tag</Text>
-    //         </TouchableOpacity> */}
-
-    //         <Button onPress={pressButtonHandler} title='submit info' />
-
-    //     </View>
-    // )
     return result;
   }
-
-  
-
-
-    
-
-
-
 
     // return the input and button
     return (
@@ -103,10 +52,6 @@ export default function WriteNfc() {
             placeholder='enter link'
             onChangeText={linkChangeHandler}
             />
-
-            {/* <TouchableOpacity style={styles.input} onPress={inp}>
-                <Text style={{ color: "white" }}>Write Tag</Text>
-            </TouchableOpacity> */}
 
             <Button onPress={pressButtonHandler} title='submit info' />
 
@@ -120,7 +65,7 @@ const styles = StyleSheet.create({
   
     input: {
       borderWidth: 1,
-      borderColor: 'white',
+      borderColor: 'black',
       padding: 8,
       margin: 10,
       width: 200
