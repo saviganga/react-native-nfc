@@ -8,7 +8,7 @@ import axios from 'axios'
 
 export default function WriteToVcard() {
 
-    const baseUrl = "https://be61-102-216-201-44.ngrok-free.app"
+    const baseUrl = "https://5b1f-102-216-201-33.ngrok-free.app"
 
     const [email, setEmail] = useState('')
     const [isLoading, setIsLoading] = useState(false);

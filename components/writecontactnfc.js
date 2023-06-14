@@ -8,7 +8,7 @@ import axios from 'axios'
 
 export default function AddUser() {
 
-    const baseUrl = "https://be61-102-216-201-44.ngrok-free.app"
+    const baseUrl = "https://5b1f-102-216-201-33.ngrok-free.app"
 
     const [isLoading, setIsLoading] = useState(false);
     const [persons, setPersons] = useState({
