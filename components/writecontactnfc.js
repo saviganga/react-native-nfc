@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, FlatList, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, FlatList, View, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
 import RNFS from 'react-native-fs';
@@ -100,37 +100,44 @@ export default function AddUser() {
       }
 
     return (
+        <ScrollView>
         <View>
+            <Text style={styles.inputLabel}>first name</Text>
             <TextInput
             style={styles.input}
             placeholder='enter first name'
             onChangeText={firstnameChangeHandler}
             />
 
+            <Text style={styles.inputLabel}>last name</Text>
             <TextInput
             style={styles.input}
             placeholder='enter last name'
             onChangeText={lastnameChangeHandler}
             />
 
+            <Text style={styles.inputLabel}>phone</Text>
             <TextInput
             style={styles.input}
             placeholder='enter user phone'
             onChangeText={phoneChangeHandler}
             />
 
+            <Text style={styles.inputLabel}>email</Text>
             <TextInput
             style={styles.input}
             placeholder='enter email'
             onChangeText={emailChangeHandler}
             />
 
+            <Text style={styles.inputLabel}>organisation</Text>
             <TextInput
             style={styles.input}
             placeholder='enter user organisation'
             onChangeText={orgChangeHandler}
             />
 
+            <Text style={styles.inputLabel}>position</Text>
             <TextInput
             style={styles.input}
             placeholder='enter user position'
@@ -140,6 +147,7 @@ export default function AddUser() {
             <Button onPress={pressButtonHandler} title='submit info' />
 
         </View>
+        </ScrollView>
     )
 
 };
@@ -153,6 +161,13 @@ const styles = StyleSheet.create({
       margin: 10,
       width: 200
     },
+
+    inputLabel: {
+        marginBottom: -1,
+        marginStart: 15,
+        marginTop: 10
+        
+      },
    
   });
   

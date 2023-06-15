@@ -65,7 +65,7 @@ export default function WriteToVcard() {
 
     return (
         <View>
-
+            <Text style={styles.inputLabel}>Enter email to copy info to nfc card</Text>
             <TextInput
             style={styles.input}
             placeholder='enter email'
@@ -88,6 +88,13 @@ const styles = StyleSheet.create({
       margin: 10,
       width: 200
     },
+
+    inputLabel: {
+        marginBottom: -1,
+        marginStart: 15,
+        marginTop: 10
+        
+      },
    
   });
   

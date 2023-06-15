@@ -47,6 +47,7 @@ export default function WriteNfc() {
     // return the input and button
     return (
         <View>
+            <Text style={styles.inputLabel}>Enter url to copy to nfc card</Text>
             <TextInput
             style={styles.input}
             placeholder='enter link'
@@ -69,6 +70,13 @@ const styles = StyleSheet.create({
       padding: 8,
       margin: 10,
       width: 200
+    },
+
+    inputLabel: {
+      marginBottom: -1,
+      marginStart: 15,
+      marginTop: 10
+      
     },
    
   });
