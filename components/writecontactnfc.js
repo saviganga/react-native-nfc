@@ -183,14 +183,14 @@ export default function AddUser() {
             />
             {urls.map((url, index) => (
             <View key={index} style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>URL site</Text>
+            <Text style={styles.inputLabel}>site</Text>
             <TextInput
                 style={styles.urlinput}
                 placeholder="Label"
                 value={url.label}
                 onChangeText={text => handleChangeUrl(index, 'label', text)}
             />
-            <Text style={styles.inputLabel}>URL</Text>
+            <Text style={styles.inputLabel}>url</Text>
             <TextInput
                 style={styles.urlinput}
                 placeholder="Link"
