@@ -2,6 +2,7 @@
 import { Button, StyleSheet, Text, TextInput, FlatList, View, SafeAreaView, TouchableOpacity, cancelReadTag } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 export default function WriteNfc() {
@@ -46,7 +47,8 @@ export default function WriteNfc() {
 
     // return the input and button
     return (
-        <View>
+      <KeyboardAwareScrollView contentContainerStyle={styles.container} scrollEnabled={false} resetScrollToCoords={{ x: 0, y: 0 }}>
+        {/* <View> */}
             <Text style={styles.inputLabel}>Enter url to copy to nfc card</Text>
             <TextInput
             style={styles.input}
@@ -56,7 +58,8 @@ export default function WriteNfc() {
 
             <Button onPress={pressButtonHandler} title='submit info' />
 
-        </View>
+        {/* </View> */}
+        </KeyboardAwareScrollView>
     )
 }
 
@@ -78,6 +81,12 @@ const styles = StyleSheet.create({
       marginTop: 10
       
     },
+
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      },
    
   });
   

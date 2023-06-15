@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
 import RNFS from 'react-native-fs';
 import axios from 'axios'
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default function WriteToVcard() {
 
@@ -64,7 +64,8 @@ export default function WriteToVcard() {
       }
 
     return (
-        <View>
+        // <View>
+        <KeyboardAwareScrollView contentContainerStyle={styles.container} scrollEnabled={false} resetScrollToCoords={{ x: 0, y: 0 }}>
             <Text style={styles.inputLabel}>Enter email to copy info to nfc card</Text>
             <TextInput
             style={styles.input}
@@ -73,8 +74,10 @@ export default function WriteToVcard() {
             />
 
             <Button onPress={pressButtonHandler} title='submit info' />
-
-        </View>
+        
+        {/* </View> */}
+        </KeyboardAwareScrollView>
+        
     )
 
 };
@@ -95,6 +98,12 @@ const styles = StyleSheet.create({
         marginTop: 10
         
       },
+
+    container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    },
    
   });
   

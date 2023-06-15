@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, FlatList, View, ScrollView } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, FlatList, View, ScrollView, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
 import RNFS from 'react-native-fs';
 import axios from 'axios'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 export default function AddUser() {
@@ -100,8 +101,14 @@ export default function AddUser() {
       }
 
     return (
-        <ScrollView>
-        <View>
+        <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+        {/* <KeyboardAvoidingView style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
+        > */}
+        {/* <View> */}
+            
+        
             <Text style={styles.inputLabel}>first name</Text>
             <TextInput
             style={styles.input}
@@ -143,11 +150,14 @@ export default function AddUser() {
             placeholder='enter user position'
             onChangeText={positionChangeHandler}
             />
+            
 
             <Button onPress={pressButtonHandler} title='submit info' />
-
-        </View>
-        </ScrollView>
+        
+        {/* </View> */}
+        {/* </KeyboardAvoidingView> */}
+        </KeyboardAwareScrollView>
+        
     )
 
 };
@@ -168,6 +178,12 @@ const styles = StyleSheet.create({
         marginTop: 10
         
       },
+
+    container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    },
    
   });
   
