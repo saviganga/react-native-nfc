@@ -76,10 +76,9 @@ export default function AddUser() {
         let result = false
 
         setIsLoading(true);
-        const payload = persons
 
         try {
-            const response = await axios.post(`${baseUrl}/vcf/vcf-user-info/`, payload);
+            const response = await axios.post(`${baseUrl}/vcf/vcf-user-info/`, {first_name: firstname, last_name: lastname, email: email, phone: phone, organisation: organisation, position: position});
       
             if (response.status === 201) {
               alert(` You have created: ${JSON.stringify(response.data.data)}`);
