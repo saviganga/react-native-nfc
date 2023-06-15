@@ -47,7 +47,13 @@ const styles = StyleSheet.create({
     },
     list: {
       marginTop: 20
-    }
+    },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      },
+    
   });
   
 
