@@ -197,7 +197,7 @@ export default function AddUser() {
                 value={url.link}
                 onChangeText={text => handleChangeUrl(index, 'link', text)}
             />
-            <Button title="delete" onPress={handleDeleteUrl} />
+            <Button title="delete" onPress={() => handleDeleteUrl(index)} />
             </View>
         ))}
             
