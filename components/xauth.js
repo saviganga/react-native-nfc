@@ -30,10 +30,11 @@ const LoginSignupPage = () => {
           alert(` User successfully logged in `);
         } else {
           // Failed login
-          console.log(response.data)
+          alert(response.message);
         }
       } catch (error) {
         // Handle error
+        alert("invalid credentials");
         console.log(error)
       } 
     } else {
@@ -48,11 +49,13 @@ const LoginSignupPage = () => {
             // console.log(response.data)
           } else {
             // Failed signup
-            console.log(response.data)
+            alert(response.message);
+            // console.log(response.data)
           }
         } catch (error) {
           // Handle error
-          console.log(error)
+          alert(error);
+        //   console.log(error)
         }
       }
      
