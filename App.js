@@ -11,6 +11,7 @@ import ReadNfc from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/comp
 import HomeScreen from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/home';
 import AddUser from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writecontactnfc';
 import WriteToVcard from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writevcard';
+import LoginSignupPage from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/xauth';
 
 // const Stack = createNativeStackNavigator();
 
@@ -22,8 +23,9 @@ export default function App() {
 
     <NavigationContainer>
       <Tab.Navigator initialRouteName="Home">
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="write URL" component={WriteNfc} />
+        <Tab.Screen name="auth" component={LoginSignupPage} />
+        <Tab.Screen name="home" component={HomeScreen} />
+        <Tab.Screen name="write url" component={WriteNfc} />
         <Tab.Screen name="create contact" component={AddUser} />
         <Tab.Screen name="write vcard" component={WriteToVcard} />
       </Tab.Navigator>
