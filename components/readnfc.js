@@ -2,6 +2,7 @@
 import { Button, StyleSheet, Text, TextInput, FlatList, View, SafeAreaView, TouchableOpacity, cancelReadTag, Alert } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 export default function ReadNfc() {
@@ -24,11 +25,13 @@ export default function ReadNfc() {
       }
 
       return (
-        <SafeAreaView style={styles.sectionContainer}>
+        <View style={styles.container}>
+          
           <TouchableOpacity style={styles.input} onPress={readTag}>
             <Text style={{ color: "black" }}>Scan Tag</Text>
           </TouchableOpacity>
-        </SafeAreaView>
+          
+        </View>
       );
 
 
@@ -38,9 +41,12 @@ const styles = StyleSheet.create({
     input: {
       borderWidth: 1,
       borderColor: 'black',
+      justifyContent: 'center',
+      alignItems: 'center',
       padding: 8,
       margin: 10,
-      width: 200
+      width: 200,
+      height: 50
     },
     content: {
       padding: 40
@@ -50,6 +56,7 @@ const styles = StyleSheet.create({
     },
     container: {
       flex: 1,
+      marginTop: 250,
       justifyContent: 'center',
       alignItems: 'center',
       },

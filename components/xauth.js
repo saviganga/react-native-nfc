@@ -2,10 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { useNavigation } from '@react-navigation/native';
+
+
+const LoginSignupPage = ({onLogin}) => {
 
 
 
-const LoginSignupPage = () => {
   const [username, setUsername] = useState('');
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
@@ -27,7 +30,8 @@ const LoginSignupPage = () => {
         if (response.status === 200) {
 
           // Successful login
-          alert(` User successfully logged in `);
+        //   alert(` User successfully logged in `);
+          onLogin();
         } else {
           // Failed login
           alert(response.message);
@@ -43,10 +47,10 @@ const LoginSignupPage = () => {
           const response = await axios.post('https://5b1f-102-216-201-33.ngrok-free.app/user/account/signup/', { user_name: username, password: password, email: email, first_name: firstname, last_name: lastname, re_password: repassword});
           
           // Handle response
-          if (response.ok) {
+          if (response.status === 201) {
             // Successful signup
-            alert(` User successfully signed up `);
-            // console.log(response.data)
+            // alert(` User successfully signed up `);
+            onLogin();
           } else {
             // Failed signup
             alert(response.message);
