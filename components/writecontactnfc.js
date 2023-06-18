@@ -5,6 +5,7 @@ import NfcManager, { NfcEvents, NfcTech, Ndef } from 'react-native-nfc-manager';
 import RNFS from 'react-native-fs';
 import axios from 'axios'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function AddUser() {
@@ -105,12 +106,18 @@ export default function AddUser() {
 
 
       const createUserVcard = async() => {
+        const userToken = await AsyncStorage.getItem('userToken');
         let result = false
 
         setIsLoading(true);
 
+        const headers = {
+            Authorization: `JWT ${userToken}`,
+            'Content-Type': 'application/json',
+          };
+
         try {
-            const response = await axios.post(`${baseUrl}/vcf/vcf-user-info/`, {first_name: firstname, last_name: lastname, email: email, phone: phone, organisation: organisation, position: position, links: urls});
+            const response = await axios.post(`${baseUrl}/vcf/vcf-user-info/`, {first_name: firstname, last_name: lastname, email: email, phone: phone, organisation: organisation, position: position, links: urls}, { headers });
       
             if (response.status === 201) {
               alert(` You have created: ${JSON.stringify(response.data.data)}`);

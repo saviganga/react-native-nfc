@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const LoginSignupPage = ({onLogin}) => {
@@ -31,6 +32,8 @@ const LoginSignupPage = ({onLogin}) => {
 
           // Successful login
         //   alert(` User successfully logged in `);
+        const token = response.data.data;
+        await AsyncStorage.setItem('userToken', token);
           onLogin();
         } else {
           // Failed login
@@ -50,6 +53,7 @@ const LoginSignupPage = ({onLogin}) => {
           if (response.status === 201) {
             // Successful signup
             // alert(` User successfully signed up `);
+            const token = await response.data.access;
             onLogin();
           } else {
             // Failed signup

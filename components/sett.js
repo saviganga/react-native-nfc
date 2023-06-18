@@ -15,40 +15,53 @@ import HomeScreen from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/c
 import AddUser from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writecontactnfc';
 import WriteToVcard from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/writevcard';
 import LoginSignupPage from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/xauth';
-import Settings from '/Users/saviganga/Documents/working-boy/nfc/rnative/nfc/components/sett';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
-export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+export default function Settings( { onLogout } ) {
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {!isAuthenticated ? (
-          <Stack.Screen name="Auth">
-            {(props) => <LoginSignupPage {...props} onLogin={() => setIsAuthenticated(true)} />}
-          </Stack.Screen>
-        ) : (
-          <Stack.Screen name=" ">
-            {() => (
-              <Tab.Navigator>
-                <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="write url" component={WriteNfc} />
-                <Tab.Screen name="create contact" component={AddUser} />
-                <Tab.Screen name="write vcard" component={WriteToVcard} />
-                <Tab.Screen name="settings">
-                  {(props) => <Settings {...props} onLogout={() => setIsAuthenticated(false)} />}
-                </Tab.Screen>
-              </Tab.Navigator>
-            )}
-          </Stack.Screen>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
 
-  
-};
+    const logout = () => {
+        onLogout()
+    }
+
+
+
+return (
+    <KeyboardAwareScrollView contentContainerStyle={styles.container} scrollEnabled={false} resetScrollToCoords={{ x: 0, y: 0 }}>
+      {/* <View> */}
+          <Button onPress={logout} title='logout' />
+
+      {/* </View> */}
+      </KeyboardAwareScrollView>
+  )
+}
+
+
+
+const styles = StyleSheet.create({
+
+  input: {
+    borderWidth: 1,
+    borderColor: 'black',
+    padding: 8,
+    margin: 10,
+    width: 200
+  },
+
+  inputLabel: {
+    marginBottom: -1,
+    marginStart: 15,
+    marginTop: 10
+    
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    },
+ 
+});
+
